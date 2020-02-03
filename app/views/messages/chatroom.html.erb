@@ -1,0 +1,14 @@
+<h3>Messages</h3>
+<% @messages.each do |message| %>
+<p>
+  <%= message.user.email %>:<%= message.tweet %>
+</p>
+<% end %>
+
+<div id="<%= params[:id] %>"></div>
+
+  <%= form_with(url: messages_generate_path, method: :post, remote: true) do |f| %>
+    <%= f.text_field :tweet, :id => "tweet_form" %>
+    <%= f.number_field :room_number, :value => params[:id] %>
+    <%= f.submit "Say Something!" %>
+  <% end %>

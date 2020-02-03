@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @room.title %>
+</p>
+
+<% @messages.each do |message| %>
+<p>
+<%= message.user.email %>:<%= message.tweet %>
+</p>
+<% end %>
+
+
+<%= link_to 'Edit', edit_room_path(@room) %> |
+<%= link_to 'Back', rooms_path %>
